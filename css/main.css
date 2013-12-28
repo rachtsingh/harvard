@@ -1,0 +1,67 @@
+.grey{
+	text-align: left;
+	font-family: Playfair Display;
+	margin-bottom: 15px;
+	max-height: 150px;
+}
+#searchwrap{
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 30px;
+	font-family: Segoe UI Light, Arial;
+}
+#peoplewrapper{
+	background-color: #F3F3F1;
+}
+.header{
+	text-align: center;
+	background-color: #A51C30;
+	color: white;
+	/*min-height: 200px;*/
+	margin-bottom: 25px;
+	font-family: Playfair Display;
+}
+#header{
+	font-size: 60px;
+	margin-top: 30px;
+}
+#search{
+	font-size: 20px;
+	padding: 5px;
+	font-family: Segoe UI Light, Arial;
+	border-radius: 2.5px;
+	border: none;
+}
+.image{
+	display: inline;
+	margin-right: 10px;
+}
+.name{
+	display: inline;
+	font-family: Segoe UI, Arial;
+	font-size: 1.2em;
+}
+.blurb-repeat{
+	margin-bottom: 15px;
+}
+ul {
+	list-style-type: none;
+}
+.modalh{
+	display: inline-block;
+}
+#modalx{
+	font-size: 36px;
+	margin-top: 15px;
+}
+.noline {
+	color: #A51C30;
+}
+#footer {
+	background-color: #A51C30;
+	padding: 20px;
+	text-align: center;
+	font-family: Segoe UI, Arial;
+	color: white;
+}

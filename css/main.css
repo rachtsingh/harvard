@@ -1,3 +1,6 @@
+html{
+	/*background-color: #F3F3F1;*/
+}
 .grey{
 	text-align: left;
 	font-family: Playfair Display;
@@ -12,7 +15,7 @@
 	font-family: Segoe UI Light, Arial;
 }
 #peoplewrapper{
-	background-color: #F3F3F1;
+	/*background-color: #F3F3F1;*/
 }
 .header{
 	text-align: center;
@@ -64,4 +67,17 @@ ul {
 	text-align: center;
 	font-family: Segoe UI, Arial;
 	color: white;
+}
+#nomatch{
+	padding: 25px;
+	text-align: center;
+	font-size: 24px;
+}
+.bottom {
+	position: inherit;
+	
+}
+.stickied {
+	position:absolute;
+	bottom: 0;
 }

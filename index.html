@@ -42,11 +42,11 @@
         Harvard Class of 2018
       </div>
       <div id="searchwrap">
-        Search: &nbsp; <input ng-model="query" id="search">
+        Search: &nbsp; <input ng-model="query" id="search"><span ng-hide="filteredItems.length == posts.length"> {{filteredItems.length}} results</span>
       </div>
     </div>
     <div id="peoplewrapper" class="row-fluid">
-      <div class="col-xs-4 grey" ng-repeat="post in posts | filter:query" ng-click="thing(this)">
+      <div class="col-xs-4 grey" ng-repeat="post in filteredItems  = (posts | filter:query)" ng-click="thing(this)">
         <div class="image">
           <img src="{{post.picture}}" alt="Error!">
         </div>
@@ -54,12 +54,13 @@
           {{post.from.name}}
         </div>
       </div>
+      <div ng-hide="filteredItems.length" id="nomatch">Sorry, we didn't find anyone!</div>
+    </div>
+    <div id="footer" class="col-xs-12" ng-class="filteredItems.length?'bottom':'stickied'">
+    Made by Rachit Singh
     </div>
   </div>
-  <div id="footer" class="col-xs-12">
-    Made by Rachit Singh
-  </div>
-
+  
     <!-- No other plugins - apparently I don't need them! -->
 
   </body>

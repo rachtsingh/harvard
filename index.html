@@ -27,7 +27,7 @@
         </div>
         <div class="modal-body">
           <ul>
-            <li ng-repeat="line in post.list" class="blurb-repeat">
+            <li ng-repeat="line in post.list track by $index" class="blurb-repeat">
               {{ line }}
             </li>
           </ul>

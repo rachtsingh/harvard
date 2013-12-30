@@ -4,6 +4,11 @@ var ModalDemoCtrl = function ($scope, $modal, $log, $http) {
 
   $http.get('harvard.json').then(function(res){
     $scope.posts = res.data;
+    $scope.posts.forEach(function(element){
+      if (element.from.name == 'Luran He'){
+        console.log(element);
+      }
+    });
     console.log("got it!");
     console.log($scope.posts.length)
   });

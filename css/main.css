@@ -29,6 +29,10 @@ html{
 	font-size: 60px;
 	margin-top: 30px;
 }
+
+#searchtext{
+	display: inline-block;
+}
 #search{
 	font-size: 20px;
 	padding: 5px;
@@ -80,4 +84,27 @@ ul {
 .stickied {
 	position:absolute;
 	bottom: 0;
+}
+@media (max-width: 600px) {
+  #header{
+  	font-size: 36px;
+  	margin-top: 5px;
+  }
+  #searchtext{
+  	display: none;
+  }
+  .name {
+  	display: inline-block;
+  	text-align: center;
+  }
+  .image {
+  	display: block;
+  	text-align: center;
+  }
+  #searchwrap{
+  	margin-top: 0;
+  }
+  #search{
+  	width: 100%;
+  }
 }

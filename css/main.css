@@ -107,4 +107,7 @@ ul {
   #search{
   	width: 100%;
   }
+  #twentylist{
+  	padding-left: 0;
+  }
 }

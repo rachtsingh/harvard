@@ -59,10 +59,9 @@
           {{post.from.name}}
         </div>
       </div>
-      <div ng-show="member">MEMBER</div>
       <div ng-hide="filteredItems.length || !loggedin" id="nomatch">Looks like there isn't anything here (?)</div>
       <div id="notverified" ng-show="loggedin">
-        <span ng-show="!member">Looks like you aren't part of the Harvard Class of 2018 group. Sorry :( </span>
+        <span ng-hide="member">Looks like you aren't part of the Harvard Class of 2018 group. Sorry :( </span>
       </div>
       <div id="fbutton" ng-hide="loggedin">
         <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>

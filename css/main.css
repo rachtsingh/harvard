@@ -135,11 +135,21 @@ ul {
 .animate-enter, 
 .animate-leave
 { 
-    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -webkit-transition: 400ms;
+    transition-timing-function: ease-in;
+	-webkit-transition-timing-function: ease-in; /* Safari and Chrome */
+    -moz-transition: 400ms;
+    transition-timing-function: ease-in;
+	-webkit-transition-timing-function: ease-in; /* Safari and Chrome */
+    -ms-transition: 400ms;
+    transition-timing-function: ease-in;
+	-webkit-transition-timing-function: ease-in; /* Safari and Chrome */
+    -o-transition: 400ms;
+    transition-timing-function: ease-in;
+	-webkit-transition-timing-function: ease-in; /* Safari and Chrome */
+    transition: 400ms;
+    transition-timing-function: ease-in;
+	-webkit-transition-timing-function: ease-in; /* Safari and Chrome */
     /*position: relative;*/
     /*display: block;*/
 } 
@@ -154,6 +164,6 @@ ul {
 .animate-leave.animate-leave-active,
 .animate-enter {
     opacity: 0;
-    top: -50px;
-    height: 0px;
+    top: -150px;
+    /*height: 0px;*/
 }

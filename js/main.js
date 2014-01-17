@@ -13,7 +13,7 @@ var ModalDemoCtrl = function ($scope, $modal, $log, $http) {
 
   $http.get('harvard.dat').then(function(res){
     $scope.encrypted = res.data;
-    console.log("got encrypted data!");
+    //console.log("got encrypted data!");
     $scope.trydecrypt();
   });
 
@@ -30,7 +30,7 @@ var ModalDemoCtrl = function ($scope, $modal, $log, $http) {
     FB.Event.subscribe('auth.authResponseChange', function(response) {
       if (response.status === 'connected') {
         $scope.loggedin = true;
-        console.log("at least firing");
+        //console.log("at least firing");
         FB.api('601401026562908/?fields=docs', function(res){
           if (!('docs' in res)){
             return;
@@ -39,7 +39,7 @@ var ModalDemoCtrl = function ($scope, $modal, $log, $http) {
             if (doc.subject == "Class of 2018: The Social Network(s)"){
               $scope.member = true;
               $scope.key = doc.id;
-              console.log("Got key! " + $scope.key);
+              //console.log("Got key! " + $scope.key);
               $scope.trydecrypt();
             }
           });
@@ -57,7 +57,7 @@ var ModalDemoCtrl = function ($scope, $modal, $log, $http) {
     FB.getLoginStatus(function(response) {
       if (response.status === 'connected') {
         $scope.loggedin = true;
-        console.log("at least firing");
+        //console.log("at least firing");
         FB.api('601401026562908/?fields=docs', function(res){
           if (!('docs' in res)){
             return;
@@ -66,18 +66,18 @@ var ModalDemoCtrl = function ($scope, $modal, $log, $http) {
             if (doc.subject == "Class of 2018: The Social Network(s)"){
               $scope.member = true;
               $scope.key = doc.id;
-              console.log("Got key! " + $scope.key);
+              //console.log("Got key! " + $scope.key);
               $scope.trydecrypt();
             }
           });
         });
       } else if (response.status === 'not_authorized') {
         FB.login(function(response){
-          console.log("Logged in!");
+          //console.log("Logged in!");
         }, {scope: 'user_groups'});
       } else {
         FB.login(function(response){
-          console.log("Logged in!");
+          //console.log("Logged in!");
         }, {scope: 'user_groups'});
       }
    });
@@ -118,6 +118,7 @@ var ModalDemoCtrl = function ($scope, $modal, $log, $http) {
   };
 
   $scope.thing = function(event){
+    console.log("CLICKS BEING HANDLED");
     $scope.open(this.post.from.id);
   }
 
@@ -126,11 +127,11 @@ var ModalDemoCtrl = function ($scope, $modal, $log, $http) {
     var post = CryptoJS.AES.decrypt($scope.encrypted.toString(), $scope.key.toString());
     try {
       var temp = post.toString(CryptoJS.enc.Utf8);
-      console.log(temp);
+      //console.log(temp);
       $scope.posts = JSON.parse(temp);
-      console.log($scope.posts);
+      //console.log($scope.posts);
       $scope.$apply();
-      $scope.digest();
+      //$scope.digest();
       //console.log($scope.posts.length);
     } catch (err) {
       console.log(err);

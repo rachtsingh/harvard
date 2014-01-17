@@ -50,7 +50,7 @@
       </div>
     </div>
     <div id="peoplewrapper" class="row-fluid">
-      <div class="col-xs-4 grey" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}" ng-repeat="post in filteredItems  = (posts | filter:query)" ng-click="thing(this)">
+      <div class="col-xs-4 grey" ng-repeat="post in filteredItems  = (posts | filter:query)" ng-click="thing(this)">
       <!-- in case I want to activate it later:  ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}" -->
         <div class="image">
           <img src="{{post.picture}}" alt="Error!">

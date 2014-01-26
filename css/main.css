@@ -1,3 +1,6 @@
+html{
+	/*background-color: #F3F3F1;*/
+}
 .grey{
 	text-align: left;
 	font-family: Playfair Display;
@@ -12,7 +15,7 @@
 	font-family: Segoe UI Light, Arial;
 }
 #peoplewrapper{
-	background-color: #F3F3F1;
+	/*background-color: #F3F3F1;*/
 }
 .header{
 	text-align: center;
@@ -25,6 +28,10 @@
 #header{
 	font-size: 60px;
 	margin-top: 30px;
+}
+
+#searchtext{
+	display: inline-block;
 }
 #search{
 	font-size: 20px;
@@ -64,4 +71,99 @@ ul {
 	text-align: center;
 	font-family: Segoe UI, Arial;
 	color: white;
+}
+#nomatch{
+	padding: 25px;
+	text-align: center;
+	font-size: 24px;
+}
+.bottom {
+	position: inherit;
+	
+}
+.stickied {
+	position:absolute;
+	bottom: 0;
+}
+#fbutton {
+	text-align: center;
+}
+
+.modal-dialog{
+	width: auto !important;
+	margin: 25px;
+}
+
+.modal-content {
+	border-radius: 0;
+	-webkit-border-radius: 0;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 600px) {
+  #header{
+  	font-size: 36px;
+  	margin-top: 5px;
+  }
+  #searchtext{
+  	display: none;
+  }
+  .name {
+  	display: inline-block;
+  	text-align: center;
+  }
+  .image {
+  	display: block;
+  	text-align: center;
+  }
+  #searchwrap{
+  	margin-top: 0;
+  }
+  #search{
+  	width: 100%;
+  }
+  #twentylist{
+  	padding-left: 0;
+  }
+  .modal-dialog{
+	width: auto !important;
+	margin: 0px;
+  }
+}
+
+/* NG ANIMATION CLASSES */
+.animate-enter, 
+.animate-leave
+{ 
+    -webkit-transition: 400ms;
+    transition-timing-function: ease-in;
+	-webkit-transition-timing-function: ease-in; /* Safari and Chrome */
+    -moz-transition: 400ms;
+    transition-timing-function: ease-in;
+	-webkit-transition-timing-function: ease-in; /* Safari and Chrome */
+    -ms-transition: 400ms;
+    transition-timing-function: ease-in;
+	-webkit-transition-timing-function: ease-in; /* Safari and Chrome */
+    -o-transition: 400ms;
+    transition-timing-function: ease-in;
+	-webkit-transition-timing-function: ease-in; /* Safari and Chrome */
+    transition: 400ms;
+    transition-timing-function: ease-in;
+	-webkit-transition-timing-function: ease-in; /* Safari and Chrome */
+    /*position: relative;*/
+    /*display: block;*/
+} 
+
+.animate-enter.animate-enter-active, 
+.animate-leave {
+    opacity: 1;
+    top: 0;
+    /*height: 30px;*/
+}
+
+.animate-leave.animate-leave-active,
+.animate-enter {
+    opacity: 0;
+    top: -150px;
+    /*height: 0px;*/
 }

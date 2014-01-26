@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html ng-app="harvard">
   <head>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
+    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
     <title>Harvard Class of 2018</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.7.0.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.9.0/ui-bootstrap-tpls.min.js"></script>
     <script src="js/main.js"></script>
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--<script src="js/aes.js"></script>-->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,6 +20,8 @@
     <![endif]-->
   </head>
   <body>
+  
+  <div id="fb-root"></div>
 
   <div ng-controller="ModalDemoCtrl">
     <script type="text/ng-template" id="myModalContent.html">
@@ -26,7 +30,7 @@
             <button type="button" class="close modalh modalx" aria-hidden="true" ng-click="ok()" id="modalx">&times;</button>
         </div>
         <div class="modal-body">
-          <ul>
+          <ul id="twentylist">
             <li ng-repeat="line in post.list track by $index" class="blurb-repeat">
               {{ line }}
             </li>
@@ -41,12 +45,13 @@
       <div id="header">
         Harvard Class of 2018
       </div>
-      <div id="searchwrap">
-        Search: &nbsp; <input ng-model="query" id="search">
+      <div id="searchwrap" ng-show="loggedin">
+        <span id="searchtext">Search: &nbsp;</span><input ng-model="query" id="search"><span ng-hide="filteredItems.length == posts.length"> {{filteredItems.length}} results</span>
       </div>
     </div>
     <div id="peoplewrapper" class="row-fluid">
-      <div class="col-xs-4 grey" ng-repeat="post in posts | filter:query" ng-click="thing(this)">
+      <div class="col-xs-4 grey" ng-repeat="post in filteredItems  = (posts | filter:query)" ng-click="thing(this)">
+      <!-- in case I want to activate it later:  ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}" -->
         <div class="image">
           <img src="{{post.picture}}" alt="Error!">
         </div>
@@ -54,12 +59,19 @@
           {{post.from.name}}
         </div>
       </div>
+      <div ng-hide="filteredItems.length || !loggedin" id="nomatch">Looks like there isn't anything here (?)</div>
+      <div id="notverified" ng-show="loggedin">
+        <span ng-hide="member">Looks like you aren't part of the Harvard Class of 2018 group. Sorry :( </span>
+      </div>
+      <div id="fbutton" ng-hide="loggedin">
+        <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+      </div>
+    </div>
+    <div id="footer" class="col-xs-12" ng-class="filteredItems.length?'bottom':'stickied'">
+    Made by Rachit Singh
     </div>
   </div>
-  <div id="footer" class="col-xs-12">
-    Made by Rachit Singh
-  </div>
-
+  
     <!-- No other plugins - apparently I don't need them! -->
 
   </body>
